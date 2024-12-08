@@ -975,6 +975,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@prisma/client@npm:6.0.1"
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: a860cba31cd69fb845af0c2e6c461847e66560a2719d7786f1d3bd8de245c99e794aee7e94f1f8339d307161f57070dc6ef138283a57b5d92077f39e96ca40ba
+  languageName: node
+  linkType: hard
+
 "@radix-ui/primitive@npm:1.1.0":
   version: 1.1.0
   resolution: "@radix-ui/primitive@npm:1.1.0"
@@ -3475,6 +3487,7 @@ __metadata:
     "@mui/icons-material": ^6.1.10
     "@mui/material": ^6.1.10
     "@mui/material-nextjs": ^6.1.9
+    "@prisma/client": ^6.0.1
     "@radix-ui/react-dialog": ^1.1.2
     "@radix-ui/react-separator": ^1.1.0
     "@radix-ui/react-slot": ^1.1.0
