@@ -1,16 +1,17 @@
 import "@/styles/globals.css";
 import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+  ClerkProvider
 } from '@clerk/nextjs'
 import type { AppProps } from "next/app";
 import { AppCacheProvider } from '@mui/material-nextjs/v15-pagesRouter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Roboto } from 'next/font/google';
-
+import { alpha, Box, Stack } from "@mui/material";
+import Header from './../components/Header';
+import SideMenu from "./../components/SideMenu";
+import AppNavbar from "./../components/AppNavbar";
+import MainGrid from "./../components/MainGrid";
+import AuthGuard from "@/comman/AuthGuard";
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -25,25 +26,19 @@ const theme = createTheme({
 });
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AppCacheProvider>
-      <ThemeProvider theme={theme}>
-        <main className={roboto.variable}>
-          <ClerkProvider>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-              
-            </SignedIn>
-            <Component {...pageProps} />
-          </ClerkProvider>
-        </main>
-      </ThemeProvider>
+    <ClerkProvider>
 
+      <AuthGuard>
 
-
-    </AppCacheProvider >
+        <AppCacheProvider>
+          <ThemeProvider theme={theme}>
+            <main className={roboto.variable}>
+              <Component {...pageProps} />
+            </main>
+          </ThemeProvider>
+        </AppCacheProvider >
+      </AuthGuard>
+    </ClerkProvider>
 
   )
 }
